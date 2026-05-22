@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Local PRD and secrets
+21-keripik-singkong-pisang-PRD.md
