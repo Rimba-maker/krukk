@@ -1,0 +1,44 @@
+---
+const quotes = [
+  ['Beli buat camilan kerja, eh malah dihabisin pacar 😭', '@nadya_p'],
+  ['Sambal matah-nya pedasnya pas, nagih bgt!', '@rifkiii'],
+  ['Anak-anak suka banget rasa coklat. Restock lagi dong!', '@bundamia'],
+  ['Packagingnya lucu, rasanya juga nggak pelit bumbu.', '@sarah.id'],
+  ['Udah beli ke-3 kalinya minggu ini. Ampun deh kalorinya wkwk', '@kev_in'],
+];
+---
+
+<section class="sec testi band--paper scal" aria-labelledby="testi-h">
+  <div class="container">
+    <div class="head">
+      <h2 id="testi-h">Apa kata mereka?</h2>
+      <button class="btn pause" type="button" aria-pressed="false" data-pause>Jeda</button>
+    </div>
+  </div>
+  <div class="marquee" data-marquee>
+    <div class="marquee__track">
+      {[false, true].map((dup) => (
+        <ul class="marquee__set" aria-hidden={dup ? 'true' : undefined}>
+          {quotes.map(([text, who]) => (
+            <li>
+              <figure class="quote frame">
+                <blockquote><p>{text}</p></blockquote>
+                <figcaption><cite>{who}</cite></figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-pause]');
+  const m = document.querySelector('[data-marquee]');
+  btn?.addEventListener('click', () => {
+    const paused = m?.classList.toggle('is-paused') ?? false;
+    btn.setAttribute('aria-pressed', String(paused));
+    btn.textContent = paused ? 'Lanjut' : 'Jeda';
+  });
+</script>
