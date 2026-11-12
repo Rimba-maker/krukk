@@ -1,0 +1,26 @@
+---
+const faqs = [
+  ['Berapa lama Krukk awet?', '3 bulan dari tanggal produksi, simpan di tempat kering dan sejuk biar tetap renyah maksimal.'],
+  ['Halal gak?', 'Sudah pasti! Kami sudah punya sertifikasi halal MUI.'],
+  ['Pengiriman ke luar Jawa bisa?', 'Bisa banget! Kami pakai JNE/J&T/SPX untuk kirim ke seluruh Indonesia dengan aman.'],
+  ['Kalau melempem gimana?', 'Santai, klaim aja refund atau ganti barang via WA. Kami ganti 100% gratis kalau terbukti melempem pas sampai.'],
+  ['Mau pesan untuk hampers / corporate?', 'Bisa custom packaging dengan minimal order 50pcs. Cocok buat Lebaran, Natal, atau event kantor.'],
+];
+---
+
+<section id="faq" class="sec sec--tall band--mint scal">
+  <div class="container faq">
+    <h2>Pertanyaan sering ditanyain</h2>
+    <div class="faq__rows">
+      {faqs.map(([q, a]) => (
+        <details name="faq">
+          <summary>
+            {q}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
