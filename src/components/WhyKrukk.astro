@@ -1,0 +1,61 @@
+---
+const reasons = [
+  { title: 'Bahan asli petani lokal', text: 'Singkong dari Lampung, pisang dari Kebumen. Fresh, langsung dari kebun.', img: 'bahan', alt: 'Tumpukan singkong segar dengan kulit cokelat', cap: 'Singkong segar, bahan dasar keripik.' },
+  { title: 'Tanpa MSG & pengawet', text: 'Rasa nendang murni dari bumbu rempah, bukan kimia.', img: 'bumbu', alt: 'Keripik berbumbu rempah di mangkuk biru', cap: 'Keripik berbumbu dalam mangkuk.' },
+  { title: 'Digoreng pakai minyak premium', text: 'Renyah lama, gak gampang melempem.', img: 'renyah', alt: 'Tumpukan keripik renyah dari dekat', cap: 'Tekstur renyah dari dekat.' },
+  { title: 'Packaging kedap udara', text: 'Tetap kriuk dari rumah produksi sampai mulutmu.', img: 'kemas', alt: 'Keripik pisang diserok dari toples ke kantong', cap: 'Keripik pisang diserok ke kantong.' },
+];
+---
+
+<section class="sec sec--tall band--ink scal" aria-labelledby="why-h">
+  <div class="container">
+    <div class="head">
+      <h2 id="why-h">Kenapa Krukk beda?</h2>
+    </div>
+    <div class="why" data-why>
+      <div class="why__stage" aria-hidden="true">
+        <div class="why__stack frame">
+          {reasons.map((r, i) => (
+            <div class="why__shot" data-slot={`why-${i + 1}`} data-alt={r.cap}>
+              <img src={`/images/${r.img}.jpg`} alt="" width="1200" height="800" loading="lazy" />
+            </div>
+          ))}
+        </div>
+        <p class="caption" data-cap>{reasons[0].cap}</p>
+      </div>
+      <ul class="why__panels">
+        {reasons.map((r, i) => (
+          <li class="why__panel" data-panel={i} data-cap={r.cap}>
+            <figure class="why__inline">
+              <div class="frame" data-slot={`why-inline-${i + 1}`} data-alt={r.cap}>
+                <img src={`/images/${r.img}.jpg`} alt={r.alt} width="1200" height="800" loading="lazy" />
+              </div>
+            </figure>
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector('[data-why]');
+  if (root) {
+    const shots = root.querySelectorAll('.why__shot');
+    const panels = root.querySelectorAll<HTMLElement>('[data-panel]');
+    const cap = root.querySelector('[data-cap]');
+    const show = (i: number) => {
+      shots.forEach((s, n) => s.classList.toggle('is-on', n === i));
+      panels.forEach((p, n) => p.classList.toggle('is-on', n === i));
+      if (cap) cap.textContent = panels[i].dataset.cap ?? '';
+    };
+    show(0);
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && show(Number((e.target as HTMLElement).dataset.panel))),
+      { rootMargin: '-45% 0px -45% 0px' },
+    );
+    panels.forEach((p) => io.observe(p));
+  }
+</script>
