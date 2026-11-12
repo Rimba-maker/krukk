@@ -1,21 +1,34 @@
 ---
+// Fill `url` with the real Krukk store page; an empty url renders a plain row, never a dead link.
+const stores = [
+  { name: 'Shopee', url: '' },
+  { name: 'Tokopedia', url: '' },
+  { name: 'TikTok Shop', url: '' },
+  { name: 'Lazada', url: '' },
+  { name: 'Blibli', url: '' },
+];
 ---
 
-<section id="belanja" class="py-[var(--spacing-section)] border-t border-[var(--color-hairline)] text-center">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-headline mb-[var(--spacing-xl)]">Belanja Di Mana Aja</h2>
-    
-    <div class="flex flex-wrap justify-center items-center gap-[var(--spacing-xl)] opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
-      <!-- Simulated Logos using text for simplicity, in a real app these would be SVGs -->
-      <div class="text-2xl font-bold tracking-tighter">Shopee</div>
-      <div class="text-2xl font-bold text-green-600">Tokopedia</div>
-      <div class="text-2xl font-bold italic">TikTok Shop</div>
-      <div class="text-2xl font-bold text-blue-600">Lazada</div>
-      <div class="text-2xl font-bold text-blue-400">Blibli</div>
+<section id="belanja" class="sec sec--tall band--paper scal" aria-labelledby="buy-h">
+  <div class="container">
+    <div class="head">
+      <h2 id="buy-h">Belanja di mana aja</h2>
+      <p class="lead">Tersedia juga secara offline di beberapa cabang Indomaret dan mitra reseller kami.</p>
     </div>
-    
-    <p class="text-body-sm text-[var(--color-ink)]/50 mt-[var(--spacing-lg)]">
-      Tersedia juga secara offline di beberapa cabang Indomaret & mitra reseller kami.
-    </p>
+    <ul class="stores">
+      {stores.map(({ name, url }) => (
+        <li>
+          {url
+            ? <a class="store" href={url}><span class="store__name">{name}</span></a>
+            : <div class="store"><span class="store__name">{name}</span></div>}
+        </li>
+      ))}
+      <li>
+        <div class="store">
+          <span class="store__name">Offline</span>
+          <p class="store__note">Indomaret (beberapa cabang) dan reseller.</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
