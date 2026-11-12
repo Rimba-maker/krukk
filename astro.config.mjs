@@ -6,8 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://rimba-maker.github.io',
-  base: '/krukk',
+  // GitHub Pages serves the project under /krukk; local dev and builds stay at the root.
+  ...(process.env.GITHUB_ACTIONS ? { site: 'https://rimba-maker.github.io', base: '/krukk' } : {}),
   integrations: [react()],
 
   vite: {
