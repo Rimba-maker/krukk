@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const reasons = [
   { title: 'Bahan asli petani lokal', text: 'Singkong dari Lampung, pisang dari Kebumen. Fresh, langsung dari kebun.', img: 'bahan', alt: 'Tumpukan singkong segar dengan kulit cokelat', cap: 'Singkong segar, bahan dasar keripik.' },
   { title: 'Tanpa MSG & pengawet', text: 'Rasa nendang murni dari bumbu rempah, bukan kimia.', img: 'bumbu', alt: 'Keripik berbumbu rempah di mangkuk biru', cap: 'Keripik berbumbu dalam mangkuk.' },
@@ -17,7 +18,7 @@ const reasons = [
         <div class="why__stack frame">
           {reasons.map((r, i) => (
             <div class="why__shot" data-slot={`why-${i + 1}`} data-alt={r.cap}>
-              <img src={`/images/${r.img}.jpg`} alt="" width="1200" height="800" loading="lazy" />
+              <img src={`${base}/images/${r.img}.jpg`} alt="" width="1200" height="800" loading="lazy" />
             </div>
           ))}
         </div>
@@ -28,7 +29,7 @@ const reasons = [
           <li class="why__panel" data-panel={i} data-cap={r.cap}>
             <figure class="why__inline">
               <div class="frame" data-slot={`why-inline-${i + 1}`} data-alt={r.cap}>
-                <img src={`/images/${r.img}.jpg`} alt={r.alt} width="1200" height="800" loading="lazy" />
+                <img src={`${base}/images/${r.img}.jpg`} alt={r.alt} width="1200" height="800" loading="lazy" />
               </div>
             </figure>
             <h3>{r.title}</h3>

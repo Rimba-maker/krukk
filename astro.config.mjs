@@ -6,6 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://rimba-maker.github.io',
+  base: '/krukk',
   integrations: [react()],
 
   vite: {

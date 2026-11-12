@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section id="cerita" class="sec sec--tall bts" aria-labelledby="bts-h">
@@ -8,7 +9,7 @@
       <p class="lead">Krukk dimulai dari dapur Mama Lina di Lampung, modalnya wajan, kompor, dan resep turunan nenek. Tetap homemade, cuma skalanya lebih besar.</p>
     </div>
     <div class="bts__photo frame" data-slot="dapur" data-alt="Mama Lina dan ibu-ibu menggoreng keripik di wajan besar di dapur rumahan Lampung">
-      <img src="/images/dapur.jpg" width="1800" height="1201" alt="Seorang ibu menggoreng dalam wajan besar di dapur tungku kayu" loading="lazy" style="object-position: 60% 52%" />
+      <img src={`${base}/images/dapur.jpg`} width="1800" height="1201" alt="Seorang ibu menggoreng dalam wajan besar di dapur tungku kayu" loading="lazy" style="object-position: 60% 52%" />
     </div>
     <ul class="facts">
       <li><strong>2020</strong><span>mulai berjalan</span></li>

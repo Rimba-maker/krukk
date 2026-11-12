@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="hero">
@@ -15,10 +16,10 @@
       <div class="collage__blob" aria-hidden="true"></div>
       <div class="collage__sun" aria-hidden="true"></div>
       <div class="collage__main frame" data-slot="hero" data-alt="Sekeranjang keripik pisang renyah buatan Krukk, difoto dari dekat">
-        <img src="/images/hero.jpg" width="1200" height="1500" alt="Keripik pisang renyah menumpuk di keranjang anyaman bambu" fetchpriority="high" style="object-position: 50% 45%" />
+        <img src={`${base}/images/hero.jpg`} width="1200" height="1500" alt="Keripik pisang renyah menumpuk di keranjang anyaman bambu" fetchpriority="high" style="object-position: 50% 45%" />
       </div>
       <div class="collage__small frame" data-slot="hero-2" data-alt="Singkong segar, bahan dasar keripik Krukk">
-        <img src="/images/bahan.jpg" width="1200" height="800" alt="" loading="lazy" />
+        <img src={`${base}/images/bahan.jpg`} width="1200" height="800" alt="" loading="lazy" />
       </div>
       <div class="collage__dot" aria-hidden="true"></div>
     </div>
