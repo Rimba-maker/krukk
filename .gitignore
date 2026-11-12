@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Local PRD and secrets
 21-keripik-singkong-pisang-PRD.md
+
+# Local AI instructions
+CLAUDE.md
